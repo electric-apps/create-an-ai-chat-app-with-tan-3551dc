@@ -2,6 +2,13 @@ import { useLiveQuery } from "@tanstack/react-db"
 import { conversationCollection } from "@/db/collections/conversations"
 import { Plus, Trash2, MessageSquare, Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import {
+	Dialog,
+	DialogContent,
+	DialogHeader,
+	DialogTitle,
+	DialogDescription,
+} from "@/components/ui/dialog"
 import { cn } from "@/lib/utils"
 import { useNavigate } from "@tanstack/react-router"
 import { useState } from "react"
@@ -27,6 +34,16 @@ export function ConversationSidebar({ activeId }: { activeId?: string }) {
 	)
 	const navigate = useNavigate()
 	const [mobileOpen, setMobileOpen] = useState(false)
+	const [deleteTarget, setDeleteTarget] = useState<string | null>(null)
+
+	const confirmDelete = () => {
+		if (!deleteTarget) return
+		conversationCollection.delete(deleteTarget)
+		if (activeId === deleteTarget) {
+			navigate({ to: "/" })
+		}
+		setDeleteTarget(null)
+	}
 
 	const handleNewChat = async () => {
 		const streamId = crypto.randomUUID()
@@ -44,10 +61,7 @@ export function ConversationSidebar({ activeId }: { activeId?: string }) {
 
 	const handleDelete = (e: React.MouseEvent, id: string) => {
 		e.stopPropagation()
-		conversationCollection.delete(id)
-		if (activeId === id) {
-			navigate({ to: "/" })
-		}
+		setDeleteTarget(id)
 	}
 
 	const sidebar = (
@@ -98,6 +112,30 @@ export function ConversationSidebar({ activeId }: { activeId?: string }) {
 
 	return (
 		<>
+			{/* Delete confirmation dialog */}
+			<Dialog open={deleteTarget !== null} onOpenChange={(open) => !open && setDeleteTarget(null)}>
+				<DialogContent className="sm:max-w-sm">
+					<DialogHeader>
+						<DialogTitle>Delete Conversation</DialogTitle>
+						<DialogDescription>
+							Are you sure you want to delete this conversation? This action cannot be undone.
+						</DialogDescription>
+					</DialogHeader>
+					<div className="flex justify-end gap-2 pt-4">
+						<Button variant="outline" onClick={() => setDeleteTarget(null)}>
+							Cancel
+						</Button>
+						<Button
+							variant="destructive"
+							onClick={confirmDelete}
+							className="bg-destructive/10 text-destructive hover:bg-destructive/20"
+						>
+							Delete
+						</Button>
+					</div>
+				</DialogContent>
+			</Dialog>
+
 			{/* Mobile toggle */}
 			<Button
 				variant="ghost"

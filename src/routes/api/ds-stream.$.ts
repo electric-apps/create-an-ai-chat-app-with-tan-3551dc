@@ -14,13 +14,13 @@ const HOP_BY_HOP = new Set([
 	"content-length",
 ])
 
-async function proxyDurableStream(request: Request, streamId: string): Promise<Response> {
+async function proxyDurableStream(request: Request, splatPath: string): Promise<Response> {
 	const dsServiceId = process.env.DS_SERVICE_ID
 	const dsSecret = process.env.DS_SECRET
 	const electricUrl = process.env.ELECTRIC_URL || "https://api.electric-sql.cloud"
 
 	const requestUrl = new URL(request.url)
-	const targetUrl = new URL(`${electricUrl}/v1/stream/${dsServiceId}/${streamId}`)
+	const targetUrl = new URL(`${electricUrl}/v1/stream/${dsServiceId}/${splatPath}`)
 
 	for (const [key, value] of requestUrl.searchParams) {
 		targetUrl.searchParams.set(key, value)
@@ -49,12 +49,12 @@ async function proxyDurableStream(request: Request, streamId: string): Promise<R
 	})
 }
 
-export const Route = createFileRoute("/api/ds-stream/$streamId")({
+export const Route = createFileRoute("/api/ds-stream/$")({
 	// @ts-expect-error — server.handlers types lag behind runtime support
 	server: {
 		handlers: {
-			GET: ({ request, params }: { request: Request; params: { streamId: string } }) =>
-				proxyDurableStream(request, params.streamId),
+			GET: ({ request, params }: { request: Request; params: { _splat: string } }) =>
+				proxyDurableStream(request, params._splat),
 		},
 	},
 })
