@@ -8,59 +8,198 @@
 // You should NOT make any changes in this file as it will be overwritten.
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
-import { Route as rootRouteImport } from "./routes/__root"
-import { Route as IndexRouteImport } from "./routes/index"
+import { Route as rootRouteImport } from './routes/__root'
+import { Route as IndexRouteImport } from './routes/index'
+import { Route as ChatIdRouteImport } from './routes/chat.$id'
+import { Route as ApiConversationsShapeRouteImport } from './routes/api/conversations-shape'
+import { Route as ApiConversationsRouteImport } from './routes/api/conversations'
+import { Route as ApiChatRouteImport } from './routes/api/chat'
+import { Route as ApiDsStreamStreamIdRouteImport } from './routes/api/ds-stream.$streamId'
+import { Route as ApiConversationsIdRouteImport } from './routes/api/conversations.$id'
 
 const IndexRoute = IndexRouteImport.update({
-  id: "/",
-  path: "/",
+  id: '/',
+  path: '/',
   getParentRoute: () => rootRouteImport,
+} as any)
+const ChatIdRoute = ChatIdRouteImport.update({
+  id: '/chat/$id',
+  path: '/chat/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiConversationsShapeRoute = ApiConversationsShapeRouteImport.update({
+  id: '/api/conversations-shape',
+  path: '/api/conversations-shape',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiConversationsRoute = ApiConversationsRouteImport.update({
+  id: '/api/conversations',
+  path: '/api/conversations',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiChatRoute = ApiChatRouteImport.update({
+  id: '/api/chat',
+  path: '/api/chat',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiDsStreamStreamIdRoute = ApiDsStreamStreamIdRouteImport.update({
+  id: '/api/ds-stream/$streamId',
+  path: '/api/ds-stream/$streamId',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiConversationsIdRoute = ApiConversationsIdRouteImport.update({
+  id: '/$id',
+  path: '/$id',
+  getParentRoute: () => ApiConversationsRoute,
 } as any)
 
 export interface FileRoutesByFullPath {
-  "/": typeof IndexRoute
+  '/': typeof IndexRoute
+  '/api/chat': typeof ApiChatRoute
+  '/api/conversations': typeof ApiConversationsRouteWithChildren
+  '/api/conversations-shape': typeof ApiConversationsShapeRoute
+  '/chat/$id': typeof ChatIdRoute
+  '/api/conversations/$id': typeof ApiConversationsIdRoute
+  '/api/ds-stream/$streamId': typeof ApiDsStreamStreamIdRoute
 }
 export interface FileRoutesByTo {
-  "/": typeof IndexRoute
+  '/': typeof IndexRoute
+  '/api/chat': typeof ApiChatRoute
+  '/api/conversations': typeof ApiConversationsRouteWithChildren
+  '/api/conversations-shape': typeof ApiConversationsShapeRoute
+  '/chat/$id': typeof ChatIdRoute
+  '/api/conversations/$id': typeof ApiConversationsIdRoute
+  '/api/ds-stream/$streamId': typeof ApiDsStreamStreamIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
-  "/": typeof IndexRoute
+  '/': typeof IndexRoute
+  '/api/chat': typeof ApiChatRoute
+  '/api/conversations': typeof ApiConversationsRouteWithChildren
+  '/api/conversations-shape': typeof ApiConversationsShapeRoute
+  '/chat/$id': typeof ChatIdRoute
+  '/api/conversations/$id': typeof ApiConversationsIdRoute
+  '/api/ds-stream/$streamId': typeof ApiDsStreamStreamIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: "/"
+  fullPaths:
+    | '/'
+    | '/api/chat'
+    | '/api/conversations'
+    | '/api/conversations-shape'
+    | '/chat/$id'
+    | '/api/conversations/$id'
+    | '/api/ds-stream/$streamId'
   fileRoutesByTo: FileRoutesByTo
-  to: "/"
-  id: "__root__" | "/"
+  to:
+    | '/'
+    | '/api/chat'
+    | '/api/conversations'
+    | '/api/conversations-shape'
+    | '/chat/$id'
+    | '/api/conversations/$id'
+    | '/api/ds-stream/$streamId'
+  id:
+    | '__root__'
+    | '/'
+    | '/api/chat'
+    | '/api/conversations'
+    | '/api/conversations-shape'
+    | '/chat/$id'
+    | '/api/conversations/$id'
+    | '/api/ds-stream/$streamId'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ApiChatRoute: typeof ApiChatRoute
+  ApiConversationsRoute: typeof ApiConversationsRouteWithChildren
+  ApiConversationsShapeRoute: typeof ApiConversationsShapeRoute
+  ChatIdRoute: typeof ChatIdRoute
+  ApiDsStreamStreamIdRoute: typeof ApiDsStreamStreamIdRoute
 }
 
-declare module "@tanstack/react-router" {
+declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    "/": {
-      id: "/"
-      path: "/"
-      fullPath: "/"
+    '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
+    }
+    '/chat/$id': {
+      id: '/chat/$id'
+      path: '/chat/$id'
+      fullPath: '/chat/$id'
+      preLoaderRoute: typeof ChatIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/conversations-shape': {
+      id: '/api/conversations-shape'
+      path: '/api/conversations-shape'
+      fullPath: '/api/conversations-shape'
+      preLoaderRoute: typeof ApiConversationsShapeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/conversations': {
+      id: '/api/conversations'
+      path: '/api/conversations'
+      fullPath: '/api/conversations'
+      preLoaderRoute: typeof ApiConversationsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/chat': {
+      id: '/api/chat'
+      path: '/api/chat'
+      fullPath: '/api/chat'
+      preLoaderRoute: typeof ApiChatRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/ds-stream/$streamId': {
+      id: '/api/ds-stream/$streamId'
+      path: '/api/ds-stream/$streamId'
+      fullPath: '/api/ds-stream/$streamId'
+      preLoaderRoute: typeof ApiDsStreamStreamIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/conversations/$id': {
+      id: '/api/conversations/$id'
+      path: '/$id'
+      fullPath: '/api/conversations/$id'
+      preLoaderRoute: typeof ApiConversationsIdRouteImport
+      parentRoute: typeof ApiConversationsRoute
     }
   }
 }
 
+interface ApiConversationsRouteChildren {
+  ApiConversationsIdRoute: typeof ApiConversationsIdRoute
+}
+
+const ApiConversationsRouteChildren: ApiConversationsRouteChildren = {
+  ApiConversationsIdRoute: ApiConversationsIdRoute,
+}
+
+const ApiConversationsRouteWithChildren =
+  ApiConversationsRoute._addFileChildren(ApiConversationsRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ApiChatRoute: ApiChatRoute,
+  ApiConversationsRoute: ApiConversationsRouteWithChildren,
+  ApiConversationsShapeRoute: ApiConversationsShapeRoute,
+  ChatIdRoute: ChatIdRoute,
+  ApiDsStreamStreamIdRoute: ApiDsStreamStreamIdRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
 
-import type { getRouter } from "./router.tsx"
-import type { createStart } from "@tanstack/react-start"
-declare module "@tanstack/react-start" {
+import type { getRouter } from './router.tsx'
+import type { createStart } from '@tanstack/react-start'
+declare module '@tanstack/react-start' {
   interface Register {
     ssr: true
     router: Awaited<ReturnType<typeof getRouter>>
