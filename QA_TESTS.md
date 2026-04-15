@@ -5,7 +5,7 @@ Based on: PLAN.md (AI Chat App with TanStack AI + Durable Transports)
 
 ## Summary
 
-Last run: 2026-04-15 (re-run after qa_request) — **13/15 passed, 2 failed**
+Last run: 2026-04-15 (live send test with real API key) — **11/15 passed, 4 failed**
 
 | # | Test | Result |
 |---|------|--------|
@@ -24,6 +24,12 @@ Last run: 2026-04-15 (re-run after qa_request) — **13/15 passed, 2 failed**
 | T13 | Mobile — Sidebar collapses on small viewport | ✅ PASS |
 | T14 | Settings — Cancel discards changes | ✅ PASS |
 | T15 | API key — Show/hide toggle works | ✅ PASS |
+
+### Additional findings from live send test (real API key)
+- **T2a (NEW):** `POST /api/chat` returns `401 Unauthorized` — API key not transmitted to server. Root cause: `useChat({ headers: { "x-api-key": settings.apiKey } })` in `chat.$id.tsx` captures the header value at initial render. Due to SSR/hydration timing, `settings.apiKey` is `""` at first render even though localStorage has the key. The server's `request.headers.get("x-api-key")` receives an empty string and returns 401.
+- **T2b (NEW):** `CollectionOperationError` on send — `conversationCollection.update(id, ...)` in `handleSend` throws "key was not found in the collection" even when `conversation` from `useLiveQuery` is truthy. Electric SQL shape data isn't loaded into the collection in a mutable state yet when the send fires.
+- **T2c (NEW):** No error feedback to user — when the API call returns 401, no toast, error message, or visual indicator is shown. The user message appears in the bubble (optimistic update) but no response ever arrives and there's no error state.
+- **T2d (NEW):** Message input not cleared after send — the typed message remains in the input field after pressing Enter.
 
 ---
 

@@ -1,0 +1,21 @@
+[     225ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:5180/node_modules/.vite/deps/react-dom_client.js?v=29d4db08:20102
+[    7554ms] [WARNING] [DurableStream] Using HTTP (not HTTPS) typically limits browsers to ~6 concurrent connections per origin under HTTP/1.1. This can cause slow streams and app freezes with multiple active streams. Use HTTPS for HTTP/2 support. See https://electric-sql.com/r/electric-http2 for more information. @ http://localhost:5180/src/routes/__root.tsx:54
+[    8584ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5180/api/ds-stream/chat%2F28f1a792-96b6-486b-8859-349cbba018b7?offset=-1&live=sse:0
+[    8983ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5180/api/ds-stream/chat%2F28f1a792-96b6-486b-8859-349cbba018b7?offset=-1&live=sse:0
+[   32018ms] CollectionOperationError: The key "28f1a792-96b6-486b-8859-349cbba018b7" was passed to update but an object for this key was not found in the collection
+    at http://localhost:5180/node_modules/.vite/deps/chunk-OYK5QCJL.js?v=29d4db08:9579:15
+    at Array.map (<anonymous>)
+    at CollectionMutationsManager.update (http://localhost:5180/node_modules/.vite/deps/chunk-OYK5QCJL.js?v=29d4db08:9576:38)
+    at CollectionImpl.update (http://localhost:5180/node_modules/.vite/deps/chunk-OYK5QCJL.js?v=29d4db08:10042:28)
+    at handleSend (http://localhost:5180/src/routes/chat.$id.tsx?tsr-split=component:70:30)
+    at handleSubmit (http://localhost:5180/src/components/MessageInput.tsx:23:5)
+    at handleKeyDown (http://localhost:5180/src/components/MessageInput.tsx:29:7)
+    at executeDispatch (http://localhost:5180/node_modules/.vite/deps/react-dom_client.js?v=29d4db08:13622:11)
+    at runWithFiberInDEV (http://localhost:5180/node_modules/.vite/deps/react-dom_client.js?v=29d4db08:997:72)
+    at processDispatchQueue (http://localhost:5180/node_modules/.vite/deps/react-dom_client.js?v=29d4db08:13658:37)
+[   32176ms] [ERROR] Failed to load resource: the server responded with a status of 401 (Unauthorized) @ http://localhost:5180/api/chat?id=28f1a792-96b6-486b-8859-349cbba018b7:0
+[   32624ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5180/api/ds-stream/chat%2F28f1a792-96b6-486b-8859-349cbba018b7?offset=-1&live=sse:0
+[  151395ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:5180/node_modules/.vite/deps/react-dom_client.js?v=29d4db08:20102
+[  151940ms] [WARNING] [DurableStream] Using HTTP (not HTTPS) typically limits browsers to ~6 concurrent connections per origin under HTTP/1.1. This can cause slow streams and app freezes with multiple active streams. Use HTTPS for HTTP/2 support. See https://electric-sql.com/r/electric-http2 for more information. @ http://localhost:5180/src/routes/__root.tsx:54
+[  152535ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5180/api/ds-stream/chat%2F28f1a792-96b6-486b-8859-349cbba018b7?offset=-1&live=sse:0
+[  152571ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5180/api/ds-stream/chat%2F28f1a792-96b6-486b-8859-349cbba018b7?offset=-1&live=sse:0

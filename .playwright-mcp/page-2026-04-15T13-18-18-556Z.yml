@@ -1,0 +1,22 @@
+- generic [ref=e2]:
+  - banner [ref=e3]:
+    - generic [ref=e4]:
+      - generic [ref=e5]:
+        - img [ref=e6]
+        - heading "Claude Chat" [level=1] [ref=e8]
+      - button [ref=e9]:
+        - img
+  - generic [ref=e10]:
+    - button "New Chat" [ref=e14]:
+      - img
+      - text: New Chat
+    - main [ref=e16]
+  - contentinfo [ref=e17]:
+    - generic [ref=e18]:
+      - generic [ref=e19]:
+        - img [ref=e20]
+        - generic [ref=e23]:
+          - text: Built with
+          - link "Electric" [ref=e24] [cursor=pointer]:
+            - /url: https://electric-sql.com
+      - generic [ref=e25]: © 2026 Electric SQL
