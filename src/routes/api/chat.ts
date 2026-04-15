@@ -44,7 +44,7 @@ export const Route = createFileRoute("/api/chat")({
 
 				return await toDurableChatSessionResponse({
 					stream: {
-						writeUrl: buildStreamUrl(`chat/${id}`),
+						writeUrl: buildStreamUrl(`chat-${id}`),
 						headers: getWriteHeaders(),
 						createIfMissing: true,
 					},

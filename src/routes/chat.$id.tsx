@@ -29,7 +29,7 @@ function ChatPage() {
 		() =>
 			durableStreamConnection({
 				sendUrl: `/api/chat?id=${encodeURIComponent(id)}`,
-				readUrl: `/api/ds-stream/chat/${id}`,
+				readUrl: `/api/ds-stream/chat-${id}`,
 			}),
 		[id],
 	)

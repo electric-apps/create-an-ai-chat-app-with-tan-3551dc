@@ -14,7 +14,7 @@ import { Route as ChatIdRouteImport } from './routes/chat.$id'
 import { Route as ApiConversationsShapeRouteImport } from './routes/api/conversations-shape'
 import { Route as ApiConversationsRouteImport } from './routes/api/conversations'
 import { Route as ApiChatRouteImport } from './routes/api/chat'
-import { Route as ApiDsStreamSplatRouteImport } from './routes/api/ds-stream.$'
+import { Route as ApiDsStreamStreamIdRouteImport } from './routes/api/ds-stream.$streamId'
 import { Route as ApiConversationsIdRouteImport } from './routes/api/conversations.$id'
 
 const IndexRoute = IndexRouteImport.update({
@@ -42,9 +42,9 @@ const ApiChatRoute = ApiChatRouteImport.update({
   path: '/api/chat',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ApiDsStreamSplatRoute = ApiDsStreamSplatRouteImport.update({
-  id: '/api/ds-stream/$',
-  path: '/api/ds-stream/$',
+const ApiDsStreamStreamIdRoute = ApiDsStreamStreamIdRouteImport.update({
+  id: '/api/ds-stream/$streamId',
+  path: '/api/ds-stream/$streamId',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ApiConversationsIdRoute = ApiConversationsIdRouteImport.update({
@@ -60,7 +60,7 @@ export interface FileRoutesByFullPath {
   '/api/conversations-shape': typeof ApiConversationsShapeRoute
   '/chat/$id': typeof ChatIdRoute
   '/api/conversations/$id': typeof ApiConversationsIdRoute
-  '/api/ds-stream/$': typeof ApiDsStreamSplatRoute
+  '/api/ds-stream/$streamId': typeof ApiDsStreamStreamIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -69,7 +69,7 @@ export interface FileRoutesByTo {
   '/api/conversations-shape': typeof ApiConversationsShapeRoute
   '/chat/$id': typeof ChatIdRoute
   '/api/conversations/$id': typeof ApiConversationsIdRoute
-  '/api/ds-stream/$': typeof ApiDsStreamSplatRoute
+  '/api/ds-stream/$streamId': typeof ApiDsStreamStreamIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -79,7 +79,7 @@ export interface FileRoutesById {
   '/api/conversations-shape': typeof ApiConversationsShapeRoute
   '/chat/$id': typeof ChatIdRoute
   '/api/conversations/$id': typeof ApiConversationsIdRoute
-  '/api/ds-stream/$': typeof ApiDsStreamSplatRoute
+  '/api/ds-stream/$streamId': typeof ApiDsStreamStreamIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -90,7 +90,7 @@ export interface FileRouteTypes {
     | '/api/conversations-shape'
     | '/chat/$id'
     | '/api/conversations/$id'
-    | '/api/ds-stream/$'
+    | '/api/ds-stream/$streamId'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -99,7 +99,7 @@ export interface FileRouteTypes {
     | '/api/conversations-shape'
     | '/chat/$id'
     | '/api/conversations/$id'
-    | '/api/ds-stream/$'
+    | '/api/ds-stream/$streamId'
   id:
     | '__root__'
     | '/'
@@ -108,7 +108,7 @@ export interface FileRouteTypes {
     | '/api/conversations-shape'
     | '/chat/$id'
     | '/api/conversations/$id'
-    | '/api/ds-stream/$'
+    | '/api/ds-stream/$streamId'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -117,7 +117,7 @@ export interface RootRouteChildren {
   ApiConversationsRoute: typeof ApiConversationsRouteWithChildren
   ApiConversationsShapeRoute: typeof ApiConversationsShapeRoute
   ChatIdRoute: typeof ChatIdRoute
-  ApiDsStreamSplatRoute: typeof ApiDsStreamSplatRoute
+  ApiDsStreamStreamIdRoute: typeof ApiDsStreamStreamIdRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -157,11 +157,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiChatRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/api/ds-stream/$': {
-      id: '/api/ds-stream/$'
-      path: '/api/ds-stream/$'
-      fullPath: '/api/ds-stream/$'
-      preLoaderRoute: typeof ApiDsStreamSplatRouteImport
+    '/api/ds-stream/$streamId': {
+      id: '/api/ds-stream/$streamId'
+      path: '/api/ds-stream/$streamId'
+      fullPath: '/api/ds-stream/$streamId'
+      preLoaderRoute: typeof ApiDsStreamStreamIdRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/api/conversations/$id': {
@@ -191,7 +191,7 @@ const rootRouteChildren: RootRouteChildren = {
   ApiConversationsRoute: ApiConversationsRouteWithChildren,
   ApiConversationsShapeRoute: ApiConversationsShapeRoute,
   ChatIdRoute: ChatIdRoute,
-  ApiDsStreamSplatRoute: ApiDsStreamSplatRoute,
+  ApiDsStreamStreamIdRoute: ApiDsStreamStreamIdRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

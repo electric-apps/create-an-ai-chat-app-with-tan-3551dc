@@ -14,15 +14,16 @@ const HOP_BY_HOP = new Set([
 	"content-length",
 ])
 
-async function proxyDurableStream(request: Request, splatPath: string): Promise<Response> {
+async function proxyDurableStream(request: Request, streamId: string): Promise<Response> {
 	const dsServiceId = process.env.DS_SERVICE_ID
 	const dsSecret = process.env.DS_SECRET
 	const electricUrl = process.env.ELECTRIC_URL || "https://api.electric-sql.cloud"
 
 	const requestUrl = new URL(request.url)
-	const targetUrl = new URL(`${electricUrl}/v1/stream/${dsServiceId}/${splatPath}`)
+	const targetUrl = new URL(`${electricUrl}/v1/stream/${dsServiceId}/${streamId}`)
 
 	for (const [key, value] of requestUrl.searchParams) {
+		if (key === "stream_path") continue
 		targetUrl.searchParams.set(key, value)
 	}
 
@@ -32,6 +33,18 @@ async function proxyDurableStream(request: Request, splatPath: string): Promise<
 			Authorization: `Bearer ${dsSecret}`,
 		},
 	})
+
+	// Stream doesn't exist yet (created on first message send).
+	// Return an empty SSE response so the client doesn't log a console error.
+	if (response.status === 404) {
+		return new Response("", {
+			status: 200,
+			headers: {
+				"Content-Type": "text/event-stream",
+				"Cache-Control": "no-cache, no-store, must-revalidate",
+			},
+		})
+	}
 
 	const forwardedHeaders = new Headers()
 	for (const [key, value] of response.headers) {
@@ -49,12 +62,12 @@ async function proxyDurableStream(request: Request, splatPath: string): Promise<
 	})
 }
 
-export const Route = createFileRoute("/api/ds-stream/$")({
+export const Route = createFileRoute("/api/ds-stream/$streamId")({
 	// @ts-expect-error — server.handlers types lag behind runtime support
 	server: {
 		handlers: {
-			GET: ({ request, params }: { request: Request; params: { _splat: string } }) =>
-				proxyDurableStream(request, params._splat),
+			GET: ({ request, params }: { request: Request; params: { streamId: string } }) =>
+				proxyDurableStream(request, params.streamId),
 		},
 	},
 })
