@@ -1,0 +1,53 @@
+- generic [ref=e2]:
+  - banner [ref=e3]:
+    - generic [ref=e4]:
+      - generic [ref=e5]:
+        - img [ref=e6]
+        - heading "Claude Chat" [level=1] [ref=e8]
+      - button [ref=e9]:
+        - img
+  - generic [ref=e10]:
+    - generic [ref=e12]:
+      - button "New Chat" [active] [ref=e14]:
+        - img
+        - text: New Chat
+      - generic [ref=e15]:
+        - generic [ref=e105] [cursor=pointer]:
+          - img [ref=e106]
+          - generic [ref=e108]:
+            - paragraph [ref=e109]: New Chat
+            - paragraph [ref=e110]: now
+          - button [ref=e111]:
+            - img [ref=e112]
+        - generic [ref=e115] [cursor=pointer]:
+          - img [ref=e116]
+          - generic [ref=e118]:
+            - paragraph [ref=e119]: New Chat
+            - paragraph [ref=e120]: now
+          - button [ref=e121]:
+            - img [ref=e122]
+        - generic [ref=e16] [cursor=pointer]:
+          - img [ref=e17]
+          - generic [ref=e19]:
+            - paragraph [ref=e20]: New Chat
+            - paragraph [ref=e21]: 6m ago
+          - button [ref=e22]:
+            - img [ref=e23]
+    - main [ref=e26]:
+      - generic [ref=e36]:
+        - generic [ref=e38]:
+          - img [ref=e39]
+          - paragraph [ref=e42]: Ask Claude anything...
+        - generic [ref=e44]:
+          - textbox "Type a message..." [ref=e104]
+          - button [disabled]:
+            - img
+  - contentinfo [ref=e27]:
+    - generic [ref=e28]:
+      - generic [ref=e29]:
+        - img [ref=e30]
+        - generic [ref=e33]:
+          - text: Built with
+          - link "Electric" [ref=e34] [cursor=pointer]:
+            - /url: https://electric-sql.com
+      - generic [ref=e35]: © 2026 Electric SQL

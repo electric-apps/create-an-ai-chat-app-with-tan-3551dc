@@ -1,0 +1,38 @@
+- generic [ref=e2]:
+  - banner [ref=e3]:
+    - generic [ref=e4]:
+      - generic [ref=e5]:
+        - img [ref=e6]
+        - heading "Claude Chat" [level=1] [ref=e8]
+      - button [ref=e9]:
+        - img
+  - generic [ref=e10]:
+    - generic [ref=e12]:
+      - button "New Chat" [ref=e14]:
+        - img
+        - text: New Chat
+      - generic [ref=e115] [cursor=pointer]:
+        - img [ref=e116]
+        - generic [ref=e118]:
+          - paragraph [ref=e119]: New Chat
+          - paragraph [ref=e120]: 2m ago
+        - button [active] [ref=e121]:
+          - img [ref=e122]
+    - main [ref=e26]:
+      - generic [ref=e162]:
+        - generic [ref=e164]:
+          - img [ref=e165]
+          - paragraph [ref=e168]: Ask Claude anything...
+        - generic [ref=e170]:
+          - textbox "Type a message..." [ref=e171]
+          - button [disabled]:
+            - img
+  - contentinfo [ref=e27]:
+    - generic [ref=e28]:
+      - generic [ref=e29]:
+        - img [ref=e30]
+        - generic [ref=e33]:
+          - text: Built with
+          - link "Electric" [ref=e34] [cursor=pointer]:
+            - /url: https://electric-sql.com
+      - generic [ref=e35]: © 2026 Electric SQL

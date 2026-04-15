@@ -1,0 +1,67 @@
+- generic:
+  - generic:
+    - banner:
+      - generic:
+        - generic:
+          - img
+          - heading [level=1]: Claude Chat
+        - button [expanded]:
+          - img
+    - generic:
+      - generic:
+        - generic:
+          - generic:
+            - button:
+              - img
+              - text: New Chat
+          - generic:
+            - generic:
+              - img
+              - generic:
+                - paragraph: New Chat
+                - paragraph: 4m ago
+              - button:
+                - img
+      - main:
+        - generic:
+          - generic:
+            - generic:
+              - img
+              - paragraph: Ask Claude anything...
+          - generic:
+            - generic:
+              - textbox [disabled]:
+                - /placeholder: Set your API key in Settings to start chatting
+              - button [disabled]:
+                - img
+    - contentinfo:
+      - generic:
+        - generic:
+          - img
+          - generic:
+            - text: Built with
+            - link:
+              - /url: https://electric-sql.com
+              - text: Electric
+        - generic: © 2026 Electric SQL
+  - dialog "Settings" [ref=e47]:
+    - heading "Settings" [level=2] [ref=e49]
+    - generic [ref=e50]:
+      - generic [ref=e51]:
+        - generic [ref=e52]: Anthropic API Key
+        - generic [ref=e53]:
+          - textbox "Anthropic API Key" [active] [ref=e54]:
+            - /placeholder: sk-ant-...
+          - button [ref=e55]:
+            - img [ref=e67]
+      - generic [ref=e59]:
+        - generic [ref=e60]: Model
+        - combobox [ref=e61]:
+          - generic: Claude Sonnet 4.5
+          - img
+    - generic [ref=e62]:
+      - button "Cancel" [ref=e63]
+      - button "Save" [ref=e64]
+    - button "Close" [ref=e65]:
+      - img
+      - generic [ref=e66]: Close

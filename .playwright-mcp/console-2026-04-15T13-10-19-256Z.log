@@ -1,0 +1,25 @@
+[     204ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:5180/node_modules/.vite/deps/react-dom_client.js?v=b0b68e50:20102
+[     814ms] [WARNING] [DurableStream] Using HTTP (not HTTPS) typically limits browsers to ~6 concurrent connections per origin under HTTP/1.1. This can cause slow streams and app freezes with multiple active streams. Use HTTPS for HTTP/2 support. See https://electric-sql.com/r/electric-http2 for more information. @ http://localhost:5180/src/routes/__root.tsx:54
+[    1099ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5180/api/ds-stream/chat%2F0d7346e8-d0f3-4475-a683-af3ff1858c79?offset=-1&live=sse:0
+[    1165ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5180/api/ds-stream/chat%2F0d7346e8-d0f3-4475-a683-af3ff1858c79?offset=-1&live=sse:0
+[   13311ms] [WARNING] Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}. @ http://localhost:5180/src/routes/__root.tsx:54
+[   13313ms] [WARNING] Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}. @ http://localhost:5180/src/routes/__root.tsx:54
+[   82991ms] [WARNING] Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}. @ http://localhost:5180/src/routes/__root.tsx:54
+[   82992ms] [WARNING] Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}. @ http://localhost:5180/src/routes/__root.tsx:54
+[  121592ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5180/api/ds-stream/chat%2F59465ba3-9a38-4fbf-b8fe-f5975c25e605?offset=-1&live=sse:0
+[  150527ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5180/api/ds-stream/chat%2F0d7346e8-d0f3-4475-a683-af3ff1858c79?offset=-1&live=sse:0
+[  159149ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5180/api/ds-stream/chat%2F95c86ad6-acc9-4a48-b845-e5cd5412461d?offset=-1&live=sse:0
+[  159234ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5180/api/ds-stream/chat%2F95c86ad6-acc9-4a48-b845-e5cd5412461d?offset=-1&live=sse:0
+[  242513ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5180/api/ds-stream/chat%2F59465ba3-9a38-4fbf-b8fe-f5975c25e605?offset=-1&live=sse:0
+[  242582ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5180/api/ds-stream/chat%2F59465ba3-9a38-4fbf-b8fe-f5975c25e605?offset=-1&live=sse:0
+[  255658ms] CollectionOperationError: Collection.delete was called with key '59465ba3-9a38-4fbf-b8fe-f5975c25e605' but there is no item in the collection with this key
+    at CollectionMutationsManager.delete (http://localhost:5180/node_modules/.vite/deps/chunk-OYK5QCJL.js?v=8362f99d:9442:17)
+    at CollectionImpl.delete (http://localhost:5180/node_modules/.vite/deps/chunk-OYK5QCJL.js?v=8362f99d:9763:36)
+    at handleDelete (http://localhost:5180/src/components/ConversationSidebar.tsx:44:34)
+    at onClick (http://localhost:5180/src/components/ConversationSidebar.tsx:117:33)
+    at executeDispatch (http://localhost:5180/node_modules/.vite/deps/react-dom_client.js?v=b0b68e50:13622:11)
+    at runWithFiberInDEV (http://localhost:5180/node_modules/.vite/deps/react-dom_client.js?v=b0b68e50:997:72)
+    at processDispatchQueue (http://localhost:5180/node_modules/.vite/deps/react-dom_client.js?v=b0b68e50:13658:37)
+    at http://localhost:5180/node_modules/.vite/deps/react-dom_client.js?v=b0b68e50:14071:11
+    at batchedUpdates$1 (http://localhost:5180/node_modules/.vite/deps/react-dom_client.js?v=b0b68e50:2626:42)
+    at dispatchEventForPluginEventSystem (http://localhost:5180/node_modules/.vite/deps/react-dom_client.js?v=b0b68e50:13763:9)
