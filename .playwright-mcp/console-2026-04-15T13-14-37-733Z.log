@@ -1,2 +1,10 @@
 [     210ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:5180/node_modules/.vite/deps/react-dom_client.js?v=b0b68e50:20102
 [   54290ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:5180/node_modules/.vite/deps/react-dom_client.js?v=b0b68e50:20102
+[   83969ms] [LOG] [vite] server connection lost. Polling for restart... @ http://localhost:5180/src/routes/__root.tsx:54
+[   83990ms] [ERROR] Failed to load resource: net::ERR_INCOMPLETE_CHUNKED_ENCODING @ http://localhost:5180/__tsd/console-pipe/sse:0
+[   83990ms] [ERROR] Failed to load resource: the server responded with a status of 502 (Bad Gateway) @ http://localhost:5180/api/conversations-shape?cursor=47826960&handle=22924623-1776258303892712&live=true&log=full&offset=28843384_0:0
+[   84118ms] [ERROR] Failed to load resource: the server responded with a status of 502 (Bad Gateway) @ http://localhost:5180/__tsd/console-pipe:0
+[   84479ms] [ERROR] Failed to load resource: the server responded with a status of 502 (Bad Gateway) @ http://localhost:5180/api/conversations-shape?cursor=47826960&handle=22924623-1776258303892712&live=true&log=full&offset=28843384_0:0
+[   85305ms] [ERROR] Failed to load resource: the server responded with a status of 502 (Bad Gateway) @ http://localhost:5180/api/conversations-shape?cursor=47826960&handle=22924623-1776258303892712&live=true&log=full&offset=28843384_0:0
+[   85753ms] [ERROR] Failed to load resource: the server responded with a status of 502 (Bad Gateway) @ http://localhost:5180/api/conversations-shape?cursor=47826960&handle=22924623-1776258303892712&live=true&log=full&offset=28843384_0:0
+[   90853ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:5180/node_modules/.vite/deps/react-dom_client.js?v=29d4db08:20102

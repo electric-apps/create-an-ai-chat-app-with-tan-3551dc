@@ -5,7 +5,7 @@ Based on: PLAN.md (AI Chat App with TanStack AI + Durable Transports)
 
 ## Summary
 
-Last run: 2026-04-15 — **13/15 passed, 2 failed**
+Last run: 2026-04-15 (re-run after qa_request) — **13/15 passed, 2 failed**
 
 | # | Test | Result |
 |---|------|--------|
